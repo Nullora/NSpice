@@ -1,4 +1,3 @@
-
 CXX = g++
 CXXFLAGS = -std=c++20 $(shell pkg-config --cflags ayatana-appindicator3-0.1 gtk+-3.0)
 LDFLAGS = $(shell pkg-config --libs ayatana-appindicator3-0.1 gtk+-3.0)
@@ -20,7 +19,10 @@ build:
 clean:
 	rm -rf build
  
-.PHONY: all r clean
+install-d:
+	sudo apt install -y libayatana-appindicator3-dev libgtk-3-dev
+ 
+.PHONY: all r clean deps
 r:
-	./build/spice
+	./build/spice&
  
