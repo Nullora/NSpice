@@ -25,4 +25,7 @@ install-d:
 .PHONY: all r clean deps
 r:
 	./build/spice&
+
+compdb:
+	bear -- make
  
