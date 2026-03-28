@@ -35,7 +35,9 @@ string getVersionNumber(){
 int main(int argc, char* argv[]){
     string version;
     gtk_init(&argc, &argv);
-    AppIndicator* indicator = app_indicator_new("spice-updater", "system-software-update", APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
+
+    AppIndicator* indicator = app_indicator_new("Novus-Spice", "system-software-update", APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
+    app_indicator_set_icon_full(indicator, "/home/nullora/spicetify-updater/docs/logo/nspice.svg", "spice-updater");
     app_indicator_set_status(indicator, APP_INDICATOR_STATUS_ACTIVE);
     GtkWidget* menu = gtk_menu_new();
     GtkWidget* quit_item = gtk_menu_item_new_with_label("Quit");
@@ -49,8 +51,9 @@ int main(int argc, char* argv[]){
             version = exec("spicetify --version");
             version.pop_back();
             if(version != getVersionNumber()){
-                cout << "updating spicetify...\n";
                 system("spicetify update");
+                string cmd = "notify-send 'NSpice' 'Updated spicetify!'";
+                system(cmd.c_str());
             }
             this_thread::sleep_for(chrono::minutes(30));
         }
