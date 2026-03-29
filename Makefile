@@ -39,7 +39,7 @@ clean:
 
 install-deps:
 	@if command -v pacman > /dev/null; then \
-		sudo pacman -S gcc libayatana-appindicator gtk3; \
+		sudo pacman -S libayatana-appindicator gtk3; \
 	elif command -v apt > /dev/null; then \
 		sudo apt install -y g++ libayatana-appindicator3-dev libgtk-3-dev; \
 	else \
