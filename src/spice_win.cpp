@@ -88,7 +88,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             if(spotify_ver != last_spotify_ver){
                 exec("spicetify backup apply");
                 last_spotify_ver = spotify_ver;
-                // notify
             }
             //auto update
             if(ver!=latest_ver){
