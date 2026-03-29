@@ -2,3 +2,4 @@ o.nsnap
 compile_commands.json
 /.vscode
 /.clangd
+/.cache

@@ -25,8 +25,11 @@ int main(int argc, char* argv[]){
             version.pop_back();
             if(version != getVersionNumber()){
                 system("spicetify update");
-                string cmd = "notify-send 'NSpice' 'Updated spicetify!'";
-                system(cmd.c_str());
+                system("notify-send 'NSpice' 'Updated spicetify!'");
+                string in = exec("spicetify apply");
+                if(in.find("mismatch")!= string::npos){
+                    exec("spicetify backup apply");
+                }
             }
             this_thread::sleep_for(chrono::hours(1));
         }
