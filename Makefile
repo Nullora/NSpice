@@ -40,9 +40,6 @@ clean:
 install-d:
 	sudo apt install -y libayatana-appindicator3-dev libgtk-3-dev
 
-install-a:
-    sudo pacman -S libayatana-appindicator gtk3
-
 r: all
 	$(RUN)
 
