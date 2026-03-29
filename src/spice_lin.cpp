@@ -25,7 +25,7 @@ int main(int argc, char* argv[]){
             version.pop_back();
             if(version != getVersionNumber()){
                 system("spicetify update");
-                system("notify-send 'NSpice' 'Updated spicetify!'");
+                system("notify-send 'NSpice' 'Updated spicetify.'");
                 string in = exec("spicetify apply");
                 if(in.find("mismatch")!= string::npos){
                     exec("spicetify backup apply");

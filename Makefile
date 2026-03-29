@@ -2,26 +2,25 @@ CXX = g++
 CXXFLAGS = -std=c++20 -Iinclude
 TARGET_DIR = build
 
-# detect windows
 ifeq ($(OS), Windows_NT)
     CXXFLAGS += -mwindows
     LDFLAGS += -mwindows
-	SRC = src/spice.cpp src/spice_win.cpp
+    SRC = src/spice.cpp src/spice_win.cpp
     TARGET = $(TARGET_DIR)/spice.exe
     MKDIR = mkdir $(TARGET_DIR)
     RM = rmdir /s /q $(TARGET_DIR)
     RUN = $(TARGET)
 else
-	SRC = src/spice.cpp src/spice_lin.cpp
+    SRC = src/spice.cpp src/spice_lin.cpp
     TARGET = $(TARGET_DIR)/spice
     MKDIR = mkdir -p $(TARGET_DIR)
     RM = rm -rf $(TARGET_DIR)
     RUN = $(TARGET)&
-    CXXFLAGS += $(shell pkg-config --cflags ayatana-appindicator3-0.1 gtk+-3.0) 
+    CXXFLAGS += $(shell pkg-config --cflags ayatana-appindicator3-0.1 gtk+-3.0)
     LDFLAGS += $(shell pkg-config --libs ayatana-appindicator3-0.1 gtk+-3.0)
 endif
 
-OBJ = $(SRC:src/%.cpp=$(TARGET_DIR)/%.o)
+OBJ = $(patsubst src/%.cpp, $(TARGET_DIR)/%.o, $(SRC))
 
 all: $(TARGET)
 
@@ -37,7 +36,6 @@ $(TARGET_DIR):
 clean:
 	$(RM)
 
-# debian or arch 
 install-deps:
 	@if command -v pacman > /dev/null; then \
 		sudo pacman -S libayatana-appindicator gtk3; \
@@ -46,7 +44,6 @@ install-deps:
 	else \
 		echo "Unsupported distro, install g++ and gtk3 manually"; \
 	fi
-
 
 r: all
 	$(RUN)

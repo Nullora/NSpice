@@ -90,15 +90,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 last_spotify_ver = spotify_ver;
             }
             //auto update
-            if(ver!=latest_ver){
-                cout<<exec("spicetify update")<<endl;
+            if(ver!=""){
+                nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
+                strcpy_s(nid.szInfoTitle, "NSpice");
+                strcpy_s(nid.szInfo, "Spicetify out-of-date...");
+                Shell_NotifyIcon(NIM_MODIFY, &nid);
+                exec("spicetify update");
                 apply_out = exec("spicetify apply");
                 if(apply_out.find("mismatched") != string::npos){
                     exec("spicetify backup apply");
                 }
                 nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
                 strcpy_s(nid.szInfoTitle, "NSpice");
-                strcpy_s(nid.szInfo, "Spicetify Updated!");
+                strcpy_s(nid.szInfo, "Spicetify Updated.");
                 Shell_NotifyIcon(NIM_MODIFY, &nid);
             }
             //once every 2 hours
