@@ -73,8 +73,6 @@ void addToStartup() {
 string latest_ver;
 string ver;
 string apply_out;
-string spotify_ver;
-string last_spotify_ver;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     addToStartup();
     setupTray();
