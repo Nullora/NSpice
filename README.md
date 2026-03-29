@@ -31,6 +31,9 @@ You can also build the binary from scratch if you wanna make changes to the sour
 ```bash
 make # make sure you have gcc installed
 ```
+```bash
+make compdb # to fix the squiggly lines if you use vscodium
+```
 install gcc with:
 ```bash
 sudo apt install build-essential
