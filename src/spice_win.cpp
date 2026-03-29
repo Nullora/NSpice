@@ -78,19 +78,25 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     setupTray();
     thread checker([](){
         while(true){
+            string spotify_ver = getSpotifyVersion();
+            string last_spotify_ver = spotify_ver;
             latest_ver = getVersionNumber();
             ver = exec("spicetify --version");
             ver.pop_back();
-            //apply problem
-            apply_out = exec("spicetify apply");
-            if(apply_out.find("mismatched") != string::npos){
+            //spotify update problem
+            spotify_ver = getSpotifyVersion();
+            if(spotify_ver != last_spotify_ver){
                 exec("spicetify backup apply");
+                last_spotify_ver = spotify_ver;
+                // notify
             }
             //auto update
             if(ver!=latest_ver){
                 cout<<exec("spicetify update")<<endl;
-                system("spicetify backup apply");
-                system("taskkill /F /IM Spotify.exe & start \"\" \"%APPDATA%\\Spotify\\Spotify.exe\"");
+                apply_out = exec("spicetify apply");
+                if(apply_out.find("mismatched") != string::npos){
+                    exec("spicetify backup apply");
+                }
                 nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
                 strcpy_s(nid.szInfoTitle, "NSpice");
                 strcpy_s(nid.szInfo, "Spicetify Updated!");
