@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++20 -Iinclude
 TARGET_DIR = build
 
-# Detect OS
+# detect windows
 ifeq ($(OS), Windows_NT)
     CXXFLAGS += -mwindows
     LDFLAGS += -mwindows
@@ -37,6 +37,7 @@ $(TARGET_DIR):
 clean:
 	$(RM)
 
+# debian or arch 
 install-deps:
 	@if command -v pacman > /dev/null; then \
 		sudo pacman -S libayatana-appindicator gtk3; \
