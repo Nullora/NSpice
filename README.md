@@ -4,11 +4,6 @@ Auto update spicetify so you don't have to worry about it!
 # Details
 NSpice checks for new updates every 2 hours, ensuring you get nonstop music with 0 interruptions!
 
-# Installation and usage
-<ins>**1. Downloading and building the tool:**</ins>
-- Install for [windows](https://github.com/Nullora/NSpice#windows-install).
-- Install for [debian](https://github.com/Nullora/NSpice#debian-install).
-
 # Windows install
 ```bash
 winget # if you see: Windows Package Manager v1.28.220  at the far top, proceed.
