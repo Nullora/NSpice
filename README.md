@@ -31,3 +31,9 @@ You can also build the binary from scratch if you wanna make changes to the sour
 ```bash
 make # make sure you have gcc installed
 ```
+install gcc with:
+```bash
+sudo apt install build-essential
+# or
+sudo pacman -S gcc gcc-fortran
+```
