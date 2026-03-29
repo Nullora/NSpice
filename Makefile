@@ -5,6 +5,7 @@ TARGET_DIR = build
 # Detect OS
 ifeq ($(OS), Windows_NT)
     CXXFLAGS += -mwindows
+    LDFLAGS += -mwindows
 	SRC = src/spice.cpp src/spice_win.cpp
     TARGET = $(TARGET_DIR)/spice.exe
     MKDIR = mkdir $(TARGET_DIR)

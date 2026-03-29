@@ -5,10 +5,7 @@ Auto update spicetify so you don't have to worry about it!
 NSpice checks for new updates every 30 minutes, ensuring you get nonstop music with 0 interruptions!
 
 # Installation and usage
-<ins>**1. Downloading the repository:**</ins>
-- Start by cloning the repository with `git clone https://github.com/Nullora/NSpice`.
-<ins>**2. Installing the dependencies:**</ins>
-- Before using the tool, you must install all dependencies:
+<ins>**1. Downloading and building the tool:**</ins>
 - Install for [windows](https://github.com/Nullora/NSpice#windows-install).
 - Install for [debian](https://github.com/Nullora/NSpice#debian-install).
 
@@ -16,6 +13,7 @@ NSpice checks for new updates every 30 minutes, ensuring you get nonstop music w
 ```bash
 winget # if you see: Windows Package Manager v1.28.220  at the far top, proceed.
 winget install --id Git.Git -e --source winget # if you don't have git installed
+git clone https://github.com/Nullora/NSpice # clone repo
 winget install GnuWin32.Make # if you dont have make installed
 make
 make r
