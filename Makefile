@@ -37,8 +37,15 @@ $(TARGET_DIR):
 clean:
 	$(RM)
 
-install-d:
-	sudo apt install -y libayatana-appindicator3-dev libgtk-3-dev
+install-deps:
+	@if command -v pacman > /dev/null; then \
+		sudo pacman -S gcc libayatana-appindicator gtk3; \
+	elif command -v apt > /dev/null; then \
+		sudo apt install -y g++ libayatana-appindicator3-dev libgtk-3-dev; \
+	else \
+		echo "Unsupported distro, install g++ and gtk3 manually"; \
+	fi
+
 
 r: all
 	$(RUN)
@@ -46,4 +53,4 @@ r: all
 compdb:
 	bear -- make
 
-.PHONY: all clean install-d r compdb
+.PHONY: all clean r compdb install-deps

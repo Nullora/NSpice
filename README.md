@@ -11,15 +11,15 @@ winget install --id Git.Git -e --source winget # if you don't have git installed
 git clone https://github.com/Nullora/NSpice # clone repo
 winget install GnuWin32.Make # if you dont have make installed
 cd NSpice
-make
-make r
+make r # to run the already existring binary file
+make # to build the binary from scratch
 # close with system tray button in your toolbar
 ```
-# Debian install
+# Debian/Arch install
 ```bash
 git clone https://github.com/Nullora/NSpice # clone repo
 cd NSpice # change dir
-make install-d # install dependencies
+make install-deps # install dependencies
 make # build files
 make r
 # close with system tray button in your toolbar
