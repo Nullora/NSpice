@@ -17,6 +17,9 @@ NSpice checks for new updates every 30 minutes, ensuring you get nonstop music w
 winget # if you see: Windows Package Manager v1.28.220  at the far top, proceed.
 winget install --id Git.Git -e --source winget # if you don't have git installed
 winget install GnuWin32.Make # if you dont have make installed
+make
+make r
+# close with system tray button at the bottom
 ```
 # Debian install
 ```bash
