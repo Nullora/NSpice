@@ -15,13 +15,17 @@ winget # if you see: Windows Package Manager v1.28.220  at the far top, proceed.
 winget install --id Git.Git -e --source winget # if you don't have git installed
 git clone https://github.com/Nullora/NSpice # clone repo
 winget install GnuWin32.Make # if you dont have make installed
+cd NSpice
 make
 make r
-# close with system tray button at the bottom
+# close with system tray button in your toolbar
 ```
 # Debian install
 ```bash
+git clone https://github.com/Nullora/NSpice # clone repo
+cd NSpice # change dir
 make install-d # install dependencies
 make # build files
-make r # run tool in background (look at your toolbar for the icon to pop up, you can close it from there.) 
+make r
+# close with system tray button in your toolbar
 ```
