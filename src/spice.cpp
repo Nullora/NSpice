@@ -3,6 +3,11 @@
 #include <memory>
 #include <stdexcept>
 using namespace std;
+
+string getSpotifyVersion(){
+    return exec("powershell -command \"(Get-Item '$env:APPDATA\\Spotify\\Spotify.exe').VersionInfo.FileVersion\"");
+}
+
 string exec(const char* cmd){
     array<char, 128> buffer;
     string result;
