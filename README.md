@@ -13,7 +13,11 @@ NSpice checks for new updates every 30 minutes, ensuring you get nonstop music w
 - Install for [debian](https://github.com/Nullora/NSpice#debian-install).
 
 # Windows install
-- Windows Version coming soon.
+```bash
+winget # if you see: Windows Package Manager v1.28.220  at the far top, proceed.
+winget install --id Git.Git -e --source winget # if you don't have git installed
+winget install GnuWin32.Make # if you dont have make installed
+```
 # Debian install
 ```bash
 make install-d # install dependencies
