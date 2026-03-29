@@ -10,7 +10,7 @@ using namespace std;
 
 NOTIFYICONDATA nid = {};
 HWND hwnd;
-
+//the whole system tray in the toolbar is fully ai btw the actual logic is what i coded
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
     if (msg == WM_APP + 1) {
         if (lp == WM_RBUTTONUP) {
