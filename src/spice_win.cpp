@@ -76,6 +76,10 @@ string apply_out;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     addToStartup();
     setupTray();
+    nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
+    strcpy_s(nid.szInfoTitle, "NSpice");
+    strcpy_s(nid.szInfo, "Running first check.");
+    Shell_NotifyIcon(NIM_MODIFY, &nid);
     thread checker([](){
         while(true){
             string spotify_ver = getSpotifyVersion();
