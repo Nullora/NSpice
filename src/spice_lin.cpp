@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
                     exec("spicetify backup apply");
                 }
             }
-            this_thread::sleep_for(chrono::hours(1));
+            this_thread::sleep_for(chrono::hours(2));
         }
     });
     checker.detach();
