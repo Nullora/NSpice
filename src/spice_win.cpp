@@ -61,25 +61,18 @@ void runMessageLoop() {
     }
 }
 
-void addToStartup() {
-    HKEY hKey;
-    RegOpenKeyEx(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run", 0, KEY_SET_VALUE, &hKey);
-    char path[MAX_PATH];
-    GetModuleFileName(NULL, path, MAX_PATH);
-    RegSetValueEx(hKey, "NSpice", 0, REG_SZ, (BYTE*)path, strlen(path) + 1);
-    RegCloseKey(hKey);
-}
-
 string latest_ver;
 string ver;
 string apply_out;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     addToStartup();
     setupTray();
+    //first notif 
     nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
     strcpy_s(nid.szInfoTitle, "NSpice");
     strcpy_s(nid.szInfo, "Running first check.");
     Shell_NotifyIcon(NIM_MODIFY, &nid);
+    //loop (every 2 hours ish)
     thread checker([](){
         while(true){
             string spotify_ver = getSpotifyVersion();

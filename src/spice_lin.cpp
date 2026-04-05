@@ -18,6 +18,7 @@ int main(int argc, char* argv[]){
     gtk_widget_show_all(menu);
     app_indicator_set_menu(indicator, GTK_MENU(menu));
     system("notify-send 'NSpice' 'Running first check...'");
+    addToStartup();
     thread checker([](){
         string version;
         while(true){
