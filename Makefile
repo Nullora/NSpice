@@ -4,7 +4,7 @@ TARGET_DIR = build
 
 ifeq ($(OS), Windows_NT)
     CXXFLAGS += -mwindows
-    LDFLAGS += -mwindows
+    LDFLAGS += -mwindows -static-libgcc -static-libstdc++
     SRC = src/spice.cpp src/spice_win.cpp
     TARGET = $(TARGET_DIR)/spice.exe
     MKDIR = mkdir $(TARGET_DIR)

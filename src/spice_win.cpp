@@ -72,20 +72,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     strcpy_s(nid.szInfoTitle, "NSpice");
     strcpy_s(nid.szInfo, "Running first check.");
     Shell_NotifyIcon(NIM_MODIFY, &nid);
+    exec("spicetify apply");
     //loop (every 2 hours ish)
     thread checker([](){
         while(true){
-            string spotify_ver = getSpotifyVersion();
-            string last_spotify_ver = spotify_ver;
             latest_ver = getVersionNumber();
             ver = exec("spicetify --version");
             ver.pop_back();
-            //spotify update problem
-            spotify_ver = getSpotifyVersion();
-            if(spotify_ver != last_spotify_ver){
-                exec("spicetify backup apply");
-                last_spotify_ver = spotify_ver;
-            }
             //auto update
             if(ver!=latest_ver){
                 nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;

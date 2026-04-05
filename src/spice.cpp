@@ -58,7 +58,7 @@ string exec(const char* cmd) {
     return result;
 }
 string getVersionNumber(){
-    string json = exec("curl -s -L -A \"spice-updater\" https://api.github.com/repos/spicetify/spicetify-cli/releases/latest");
+    string json = exec("curl -s -L -A \"spicerupdater\" https://api.github.com/repos/spicetify/spicetify-cli/releases/latest");
     int pos = json.find("\"tag_name\":\"v");
     int start = pos+13;
     int end = json.find("\"", start);
