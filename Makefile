@@ -8,13 +8,13 @@ ifeq ($(OS), Windows_NT)
     SRC = src/spice.cpp src/spice_win.cpp
     TARGET = $(TARGET_DIR)/spice.exe
     MKDIR = mkdir $(TARGET_DIR)
-    RM = rmdir /s /q $(TARGET_DIR)
+    RM = rmdir /s /q $(TARGET_DIR)/spice.exe
     RUN = $(TARGET)
 else
     SRC = src/spice.cpp src/spice_lin.cpp
     TARGET = $(TARGET_DIR)/spice
     MKDIR = mkdir -p $(TARGET_DIR)
-    RM = rm -rf $(TARGET_DIR)
+    RM = rm -rf $(TARGET_DIR)/spice
     RUN = $(TARGET)&
     CXXFLAGS += $(shell pkg-config --cflags ayatana-appindicator3-0.1 gtk+-3.0)
     LDFLAGS += $(shell pkg-config --libs ayatana-appindicator3-0.1 gtk+-3.0)
