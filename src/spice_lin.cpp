@@ -5,6 +5,7 @@
 #include <gtk/gtk.h>
 #include <libayatana-appindicator/app-indicator.h>
 using namespace std;
+string ver;
 int main(int argc, char* argv[]){
     string version;
     gtk_init(&argc, &argv);
