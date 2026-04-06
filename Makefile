@@ -48,7 +48,8 @@ install-deps:
 r: all
 	$(RUN)
 
-compdb:
-	bear -- make
+windep:
+	copy build\spice.exe prebuilt_binaries_win
+	copy build\libwinpthread-1.dll prebuilt_binaries_win
 
-.PHONY: all clean r compdb install-deps
+.PHONY: all clean r install-deps windep
