@@ -53,9 +53,6 @@ make # to build the binary file
 make r # to run binary
 # close with system tray button in your toolbar
 ```
-```bash
-make compdb # to fix the squiggly lines if you use vscodium
-```
 install gcc with:
 ```bash
 sudo apt install build-essential
