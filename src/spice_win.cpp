@@ -72,6 +72,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     strcpy_s(nid.szInfoTitle, "NSpice");
     strcpy_s(nid.szInfo, "Running first check.");
     Shell_NotifyIcon(NIM_MODIFY, &nid);
+    exec("spicetify update");
     exec("spicetify apply");
     //loop (every 2 hours ish)
     thread checker([](){
