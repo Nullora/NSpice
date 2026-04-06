@@ -42,6 +42,7 @@ addToStartup(); //line 68
 ```
 and rebuild the binary. doing this requires you having the compiler installed and make installed.
 If you want an option to stop itself from adding to startup, please lmk!
+If you are gonna do that, go back to the steps above and follow them alone.
 
 # Debian/Arch install
 Run in terminal:
