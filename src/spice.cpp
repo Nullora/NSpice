@@ -8,7 +8,7 @@
 #endif
 using namespace std;
 
-string getSpotifyVersion(){
+string getSpotifyVersion(){ // windows only
     return exec("powershell -command \"(Get-Item '$env:APPDATA\\Spotify\\Spotify.exe').VersionInfo.FileVersion\"");
 }
 
