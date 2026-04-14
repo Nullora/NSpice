@@ -9,6 +9,9 @@ NSpice checks for spicetify new updates every 2 hours, ensuring you get nonstop 
 
 
 # Windows install
+## Note
+This installation process does not include installing minGw or gcc, as i literally dont know how i did it myself. im not the best on windows
+I know... :(
 ## To build the binary yourself (complex if you dont have everything preinstalled)
 ```bash
 winget # if you see: Windows Package Manager v1.28.220  at the far top, proceed.
