@@ -2,7 +2,11 @@
 Auto update spicetify so you don't have to worry about it!
 
 # Details
-NSpice checks for new updates every 2 hours, ensuring you get nonstop music with 0 interruptions!
+NSpice checks for spicetify new updates every 2 hours, ensuring you get nonstop music with 0 interruptions!
+- Extremely lightweight: Only ~500kb of ram used up, along with a small 800kb executable.
+- Silent: You will forget you ever have it running until it notifies you that it updated something!
+- Reliable: This has been tested on my personal computer for over a week now. Longest it ever ran was 48 hours, 0 memory leaks and never broke once.
+
 
 # Windows install
 ## To build the binary yourself (complex if you dont have everything preinstalled)
