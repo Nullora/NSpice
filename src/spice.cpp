@@ -59,7 +59,7 @@ string exec(const char* cmd) {
 }
 string getVersionNumber(){
     string json = exec("curl -s -L -A \"spicerupdater\" https://api.github.com/repos/spicetify/spicetify-cli/releases/latest");
-    // detect error to not go to waste
+    // detect error to not spam updates if wifi is down
     if (json.rfind("curl:", 0) == 0) {
         return "ERROR: 6767";
     }

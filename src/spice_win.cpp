@@ -87,7 +87,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 strcpy_s(nid.szInfo, "Either no json or no wifi...");
                 Shell_NotifyIcon(NIM_MODIFY, &nid);
                 
-                //  now check every 30 minutes 
+                //  check every 30 mins to wait for wifi to come back and recheck
                 timet = 30;
                 this_thread::sleep_for(chrono::minutes(timet));
                 continue;
