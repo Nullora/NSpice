@@ -6,6 +6,8 @@ NSpice checks for spicetify new updates every 2 hours, ensuring you get nonstop 
 - Extremely lightweight: Only ~500kb of ram used up, along with a small 800kb executable.
 - Silent: You will forget you ever have it running until it notifies you that it updated something!
 - Reliable: This has been tested on my personal computer for over a week now. Longest it ever ran was 48 hours, 0 memory leaks and never broke once.
+- When there is no wifi or the page is down, it tries to reach it every 30 minutes to check as fast as possible. When it is rate limited, it waits 
+3 hours till the next check. (Windows only as i havent been on linux in a minute)
 
 
 # Windows install
@@ -14,7 +16,7 @@ This installation process does not include installing minGw or gcc, as i literal
 I know... :(
 ## To build the binary yourself (complex if you dont have everything preinstalled)
 ```bash
-winget # if you see: Windows Package Manager v1.28.220  at the far top, proceed.
+winget # if you see: Windows Package Manager v1.***  at the far top, proceed.
 
 winget install --id Git.Git -e --source winget # if you don't have git installed
 
