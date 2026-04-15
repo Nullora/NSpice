@@ -59,7 +59,15 @@ string exec(const char* cmd) {
 }
 string getVersionNumber(){
     string json = exec("curl -s -L -A \"spicerupdater\" https://api.github.com/repos/spicetify/spicetify-cli/releases/latest");
+    // detect error to not go to waste
+    if (json.rfind("curl:", 0) == 0) {
+        return "ERROR: 6767";
+    }
+
+    //find tag
     int pos = json.find("\"tag_name\":\"v");
+    if (pos==string::npos) return "ERROR: 6767"; // if no tag was found
+    //actual tag shit
     int start = pos+13;
     int end = json.find("\"", start);
     string rest = json.substr(start, end-start);

@@ -64,6 +64,7 @@ void runMessageLoop() {
 string latest_ver;
 string ver;
 string apply_out;
+int timet = 120;
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
     addToStartup();
     setupTray();
@@ -77,9 +78,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     //loop (every 2 hours ish)
     thread checker([](){
         while(true){
+            timet = 120;
             latest_ver = getVersionNumber();
+            if (latest_ver=="ERROR: 6767") {
+                //send warning to little cute user ..... 
+                nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
+                strcpy_s(nid.szInfoTitle, "NSpice");
+                strcpy_s(nid.szInfo, "Either no json or no wifi...");
+                Shell_NotifyIcon(NIM_MODIFY, &nid);
+                
+                //  now check every 30 minutes 
+                timet = 30;
+                this_thread::sleep_for(chrono::minutes(timet));
+                continue;
+            }
+
             ver = exec("spicetify --version");
             ver.pop_back();
+
             //auto update
             if(ver!=latest_ver){
                 nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
@@ -98,7 +114,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 Shell_NotifyIcon(NIM_MODIFY, &nid);
             }
             //once every 2 hours
-            this_thread::sleep_for(chrono::hours(2));
+            //in minutes so i can retry every 30 mins later
+            this_thread::sleep_for(chrono::minutes(timet));
         }
     });
     checker.detach();
