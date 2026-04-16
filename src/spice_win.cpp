@@ -79,6 +79,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         while(true){
             timet = 120;
             latest_ver = getVersionNumber();
+            //  panic mode (no wifi/rate limited/ corrupted JSON)
             if (latest_ver=="ERROR: 6767") {
                 //send warning to little cute user ..... 
                 nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
