@@ -52,4 +52,7 @@ windep:
 	copy build\spice.exe prebuilt_binaries_win
 	copy build\libwinpthread-1.dll prebuilt_binaries_win
 
-.PHONY: all clean r install-deps windep
+usb:
+	copy build\spice.exe D:\NSpice
+
+.PHONY: all clean r install-deps windep usb
