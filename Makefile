@@ -50,7 +50,6 @@ r: all
 
 windep:
 	copy build\spice.exe prebuilt_binaries_win
-	copy build\libwinpthread-1.dll prebuilt_binaries_win
 
 usb:
 	copy build\spice.exe D:\NSpice
