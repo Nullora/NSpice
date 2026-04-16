@@ -6,7 +6,8 @@ NSpice checks for spicetify new updates every 2 hours, ensuring you get nonstop 
 - Extremely lightweight: Only ~500kb of ram used up, along with a small 800kb executable.
 - Silent: You will forget you ever have it running until it notifies you that it updated something!
 - Reliable: This has been tested on my personal computer for over a week now. Longest it ever ran was 48 hours, 0 memory leaks and never broke once.
-- When there is no wifi or the page is down, it tries to reach it every 30 minutes to check as fast as possible. When it is rate limited, it waits 
+- When there is no wifi or the page is down, it enters panic mode and tries to reach
+it every 30 minutes to check as fast as possible. When it is rate limited, it waits 
 3 hours till the next check. (Windows only as i havent been on linux in a minute)
 
 

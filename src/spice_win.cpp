@@ -83,7 +83,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 //send warning to little cute user ..... 
                 nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
                 strcpy_s(nid.szInfoTitle, "NSpice");
-                strcpy_s(nid.szInfo, "Either no json or no wifi...");
+                strcpy_s(nid.szInfo, "No WiFi. Switching to panic mode.");
                 Shell_NotifyIcon(NIM_MODIFY, &nid);
                 
                 //  check every 30 mins to wait for wifi to come back and recheck
