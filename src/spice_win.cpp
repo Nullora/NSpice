@@ -3,7 +3,6 @@
 #include"spice.hpp"
 #include <windows.h>
 #include <shellapi.h>
-#include<iostream>
 #include<thread>
 #include<chrono>
 using namespace std;

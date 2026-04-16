@@ -1,5 +1,4 @@
 #include"spice.hpp"
-#include<iostream>
 #include<thread>
 #include<chrono>
 #include <gtk/gtk.h>
