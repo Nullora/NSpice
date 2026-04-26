@@ -78,7 +78,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     //loop (every 2 hours)
     thread checker([](){
         while(true){
-            timet = 60;
+            timet = 120;
             latest_ver = getVersionNumber();
             //  panic mode (no wifi/rate limited/ corrupted JSON)
             if (latest_ver=="ERROR: 6767") {
