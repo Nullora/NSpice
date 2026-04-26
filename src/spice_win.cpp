@@ -15,6 +15,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
         if (lp == WM_RBUTTONUP) {
             // show context menu here
             HMENU menu = CreatePopupMenu();
+            //i remove this so user stops closing app cz ppl close it then complain its not working (idk how theyve survived through life's struggles with their thinking)
             //AppendMenu(menu, MF_STRING, 1, "Quit");
             POINT pt;
             GetCursorPos(&pt);
