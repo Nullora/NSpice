@@ -15,7 +15,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
         if (lp == WM_RBUTTONUP) {
             // show context menu here
             HMENU menu = CreatePopupMenu();
-            AppendMenu(menu, MF_STRING, 1, "Quit");
+            //AppendMenu(menu, MF_STRING, 1, "Quit");
             POINT pt;
             GetCursorPos(&pt);
             SetForegroundWindow(hwnd);

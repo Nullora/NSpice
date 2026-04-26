@@ -6,9 +6,9 @@ ifeq ($(OS), Windows_NT)
     CXXFLAGS += -mwindows
     LDFLAGS += -mwindows -static -static-libgcc -static-libstdc++
     SRC = src/spice.cpp src/spice_win.cpp
-    TARGET = $(TARGET_DIR)/spice.exe
+    TARGET = $(TARGET_DIR)/nspice.exe
     MKDIR = mkdir $(TARGET_DIR)
-    RM = del /f /q $(TARGET_DIR)\spice.exe
+    RM = del /f /q $(TARGET_DIR)\nspice.exe
     RUN = $(TARGET)
 else
     SRC = src/spice.cpp src/spice_lin.cpp
@@ -39,7 +39,7 @@ clean:
 set:
 	mkdir D:\NSpice
 
-install-deps:
+install-deps: #linux only
 	@if command -v pacman > /dev/null; then \
 		sudo pacman -S libayatana-appindicator gtk3; \
 	elif command -v apt > /dev/null; then \
@@ -52,9 +52,9 @@ r: all
 	$(RUN)
 
 windep:
-	copy build\spice.exe prebuilt_binaries_win
+	copy build\nspice.exe prebuilt_binaries_win
 
-usb:
-	copy build\spice.exe D:\NSpice
+usb: windep
+	copy prebuilt_binaries_win\nspice.exe D:\NSpice
 
 .PHONY: all clean r install-deps windep usb set
