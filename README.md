@@ -40,13 +40,12 @@ You can either:
 - Or you can clone the whole repo (overkill it if youre just looking for the executable) and running
 ```bash
 .\prebuilt_binaries_win\spice.exe
-#or
-.\build\spice.exe 
+
 ```
-Both of these do literally the same thing. If you run them both you will just have 2 NSpice instances running at the same time, which usually gets the program rate limited
-because it's requesting the same copy of the json twice from the same webpage.
+Run this only once, if you run it more you will just have more instances of NSpice. This usually gets your computer rate limited and both instances wont work.
+In that case, close all NSpice instances from the task manager and wait 3/4 hours before running them again. I can't change this and it usually happens due to user error.
 ## NOTE
-This program adds itself to startup once turned on, you can't turned this off easily unless you remove the
+This program adds itself to startup once turned on, you can't turn this off easily unless you remove the
 ```cpp
 addToStartup(); //line 68
 ```
