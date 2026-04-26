@@ -47,7 +47,7 @@ In that case, close all NSpice instances from the task manager and wait 3/4 hour
 ## NOTE
 This program adds itself to startup once turned on, you can't turn this off easily unless you remove the
 ```cpp
-addToStartup(); //line 68
+addToStartup(); //line 69
 ```
 and rebuild the binary. doing this requires you having the compiler installed and make installed.
 If you want an option to stop itself from adding to startup, please lmk!
