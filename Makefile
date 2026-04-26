@@ -36,6 +36,9 @@ $(TARGET_DIR):
 clean:
 	$(RM)
 
+set:
+	mkdir D:\NSpice
+
 install-deps:
 	@if command -v pacman > /dev/null; then \
 		sudo pacman -S libayatana-appindicator gtk3; \
@@ -54,4 +57,4 @@ windep:
 usb:
 	copy build\spice.exe D:\NSpice
 
-.PHONY: all clean r install-deps windep usb
+.PHONY: all clean r install-deps windep usb set

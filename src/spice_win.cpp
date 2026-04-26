@@ -74,14 +74,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     Shell_NotifyIcon(NIM_MODIFY, &nid);
     exec("spicetify update");
     exec("spicetify apply");
-    //loop (every 2 hours ish)
+    //loop (every 2 hours)
     thread checker([](){
         while(true){
-            timet = 120;
+            timet = 60;
             latest_ver = getVersionNumber();
             //  panic mode (no wifi/rate limited/ corrupted JSON)
             if (latest_ver=="ERROR: 6767") {
-                //send warning to little cute user ..... 
+                //send warning to our cute little user ..... 
                 nid.uFlags = NIF_ICON | NIF_TIP | NIF_MESSAGE | NIF_INFO;
                 strcpy_s(nid.szInfoTitle, "NSpice");
                 strcpy_s(nid.szInfo, "No WiFi. Switching to panic mode.");
@@ -113,8 +113,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
                 strcpy_s(nid.szInfo, "Spicetify Updated.");
                 Shell_NotifyIcon(NIM_MODIFY, &nid);
             }
-            //once every 2 hours
-            //in minutes so i can retry every 30 mins later
+            //in minutes so i can handle panic mode later
             this_thread::sleep_for(chrono::minutes(timet));
         }
     });
